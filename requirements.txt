@@ -1,5 +1,5 @@
 python -m pip install pandas
 python -m pip install numpy
-python -m pip install -U matplotlib
+python -m pip3 install -U matplotlib
 python -m pip install seaborn
 python -m pip install pydeck
