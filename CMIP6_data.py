@@ -81,7 +81,7 @@ else:
 	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in / zoom out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree')
 	@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
 	def load_data2():
-		dset = xr.open_dataset('/home/nomikos/Documents/decade_thetao2000_regridded.nc')
+		dset = xr.open_dataset('/home/nomikos/Documents/decade_thetao2000_regridded_short.nc')
 		return dset
     
 	data2 = load_data2()
