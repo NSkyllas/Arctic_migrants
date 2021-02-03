@@ -22,7 +22,7 @@ st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide!
 tabletype = st.sidebar.radio('', ['All CMIP6 variables', 'Filter variables', 'Interactive map'])
 
 
-dict1 = pd.read_excel('/home/nomikos/Documents/CMIP6_MIP_tables.xlsx', sheet_name = None)
+dict1 = pd.read_excel('CMIP6_MIP_tables.xlsx', sheet_name = None)
 
 @st.cache
 def load_data():
