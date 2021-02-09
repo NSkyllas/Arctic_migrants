@@ -46,7 +46,8 @@ if tabletype == 'All CMIP6 variables':
 		sns.countplot(y=data['frequency'], order = data['frequency'].value_counts().index)
 		st.pyplot(fig2)
 	
-	st.text_input('Search')
+	search = st.text_input('Search')
+	st.write(data[data['Long name'].str.contains(search)])
 
 elif tabletype == 'Filter variables':
 	st.title('Filter variables')	
