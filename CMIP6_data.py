@@ -48,7 +48,7 @@ if tabletype == 'All CMIP6 variables':
 
 elif tabletype == 'Filter variables':
 	st.title('Filter variables')	
-	st.sidebar.markdown('Please use the 3 avilable filters to confine your search. Barplots will 	  start appearing and at the end you will see the filtered table.')
+	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will 	  start appearing and at the end you will see the filtered table.')
 	
 	realm = st.multiselect('Realm', data['modeling_realm'].unique())
 	f_data = data[(data['modeling_realm'].isin(realm))]
