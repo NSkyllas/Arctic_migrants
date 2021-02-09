@@ -88,7 +88,8 @@ else:
 
 	f_time = st.slider('Month', 1, 24, 1)
 	f_depth = st.slider('Depth', 1, 4, 1)
-	st.subheader('Time: ', data2.time.values[f_time-1], 'Depth: ', data2.depth.values[f_depth-1])
+	st.subheader(data2.time.values[f_time-1]) 
+	st.subheader(data2.depth.values[f_depth-1])
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
 	plot5 = data2.tsl.isel(time=f_time-1).hvplot(cmap='viridis')
