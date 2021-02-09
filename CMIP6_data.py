@@ -103,7 +103,7 @@ else:
 	
 	fig6 = plt.figure(figsize=(8, 0.1))
 	f_depth2 = st.radio('Depth level', [1, 2, 3, 4])
-	plot6 = data2.tsl.isel(depth=f_depth2-1).mean(dim='lon').T.hvplot()
+	plot6 = (data2.tsl.isel(depth=f_depth2-1).mean(dim='lon')-273.15).T.hvplot(clim=(-50, 50))
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
 	st.markdown('**Fig.2: Zonal means of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
