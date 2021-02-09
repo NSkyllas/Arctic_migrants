@@ -34,20 +34,20 @@ data = load_data()
 
 if tabletype == 'All CMIP6 variables':
 	st.title('All CMIP6 variables')
-	st.write(data)
+	search = st.text_input('Search')
+	st.write(data[data['Long name'].str.contains(search)])
 	col1, col2 = st.beta_columns(2)	
 	with col1:
 		fig1= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data['modeling_realm'], order = data['modeling_realm'].value_counts().index)
+		sns.countplot(y=data[data['Long name'].str.contains(search)]['modeling_realm'], order = data[data['Long name'].str.contains(search)]['modeling_realm'].value_counts().index)
 		st.pyplot(fig1)
 	
 	with col2:
 		fig2= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data['frequency'], order = data['frequency'].value_counts().index)
+		sns.countplot(y=data[data['Long name'].str.contains(search)]['frequency'], order = data[data['Long name'].str.contains(search)]['frequency'].value_counts().index)
 		st.pyplot(fig2)
 	
-	search = st.text_input('Search')
-	st.write(data[data['Long name'].str.contains(search)])
+	
 
 elif tabletype == 'Filter variables':
 	st.title('Filter variables')	
