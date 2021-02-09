@@ -48,7 +48,7 @@ if tabletype == 'All CMIP6 variables':
 
 elif tabletype == 'Filter variables':
 	st.title('Filter variables')	
-	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will 	  start appearing and at the end you will see the filtered table.')
+	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will start appearing and at the end you will see the filtered table.')
 	
 	realm = st.multiselect('Realm', data['modeling_realm'].unique())
 	f_data = data[(data['modeling_realm'].isin(realm))]
@@ -78,7 +78,7 @@ elif tabletype == 'Filter variables':
 	
 else:
 	st.title('Interactive map')
-	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in / zoom out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree')
+	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree')
 	@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
 	def load_data2():
 		dset = xr.open_dataset('soil_temp_5years_regridded.nc')
@@ -106,7 +106,7 @@ else:
 	plot6 = (data2.tsl.isel(depth=f_depth2-1).mean(dim='lon')-273.15).T.hvplot(clim=(-50, 50), cmap='RdYlBu_r')
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
-	st.markdown('**Fig.2: Zonal means of Soil Temperature monthly averages, according to the EC-Earth3 model for the years 1850 to 1851**')
+	st.markdown('**Fig.2: Zonal means of Soil Temperature monthly averages ($^o$C), according to the EC-Earth3 model for the years 1850 to 1851**')
 	
 	st.markdown("---")
 	col5, col6 = st.beta_columns(2)
@@ -118,7 +118,7 @@ else:
 	plot7 = (data2.tsl.mean(dim='depth').sel(lon=f_lon, lat=f_lat)-273.15).T.hvplot()
 	st.bokeh_chart(hv.render(plot7, backend='bokeh'))
 	st.pyplot(fig7)
-	st.markdown('**Fig.3: Soil Temperature monthly averages, averaged over depth, according to the EC-Earth3 model for the years 1850 to 1851 for gridcell with coordinates (lon, lat):**')
+	st.markdown('**Fig.3: Soil Temperature monthly averages ($^o$C), averaged over depth, according to the EC-Earth3 model for the years 1850 to 1851 for gridcell with coordinates (lon, lat):**')
 	st.write(data2.lon.values[f_lon+180]); st.write(data2.lat.values[f_lat+90])
 
 	st.markdown('---')
