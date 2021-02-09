@@ -90,7 +90,7 @@ else:
 		f_time = st.slider('Month', 1, 24, 1)
 		st.subheader(data2.time.values[f_time-1])
 	with col8:
-		f_depth = st.slider('Depth', 1, 4, 1)
+		f_depth = st.slider('Depth level', 1, 4, 1)
 		st.subheader(data2.depth.values[f_depth-1])
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
@@ -102,7 +102,8 @@ else:
 	st.markdown("---")
 	
 	fig6 = plt.figure(figsize=(8, 0.1))
-	plot6 = data2.tsl.mean(dim='lon').T.hvplot()
+	f_depth2 = st.slider('Depth level', 1, 4, 1)
+	plot6 = data2.tsl.isel(depth=f_depth2-1).mean(dim='lon').T.hvplot()
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
 	st.markdown('**Fig.2: Zonal means of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
