@@ -34,7 +34,7 @@ data = load_data()
 
 if tabletype == 'All CMIP6 variables':
 	st.title('All CMIP6 variables')
-	st.dataframe(data)
+	st.table(data)
 	col1, col2 = st.beta_columns(2)	
 	with col1:
 		fig1= plt.figure(figsize=(5, 4))
