@@ -85,13 +85,13 @@ else:
 		return dset
     
 	data2 = load_data2()
-
-	f_time = st.slider('Month', 1, 24, 1)
-	f_depth = st.slider('Depth', 1, 4, 1)
-	st.subheader('Time')
-	st.subheader(data2.time.values[f_time-1]) 
-	st.subheader('Depth')
-	st.subheader(data2.depth.values[f_depth-1])
+	col7, col8 = st.beta_columns(2)
+	with col7:
+		f_time = st.slider('Month', 1, 24, 1)
+		st.subheader(data2.time.values[f_time-1])
+	with col8:
+		f_depth = st.slider('Depth', 1, 4, 1)
+		st.subheader(data2.depth.values[f_depth-1])
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
