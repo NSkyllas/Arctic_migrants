@@ -81,12 +81,12 @@ else:
 	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in / zoom out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree')
 	@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
 	def load_data2():
-		dset = xr.open_dataset('decade_thetao2000_regridded_short.nc')
+		dset = xr.open_dataset('soil_temp_5years.nc')
 		return dset
     
 	data2 = load_data2()
 
-	f_time = st.slider('Month', 1, 60, 1)
+	f_time = st.slider('Month', 1, 24, 1)
 	st.subheader(data2.time.values[f_time-1])
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
