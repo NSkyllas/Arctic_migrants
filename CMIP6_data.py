@@ -78,7 +78,7 @@ elif tabletype == 'Filter variables':
 	
 else:
 	st.title('Interactive map')
-	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree')
+	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree and 4 depth levels.')
 	@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
 	def load_data2():
 		dset = xr.open_dataset('soil_temp_5years_regridded.nc')
