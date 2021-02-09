@@ -74,7 +74,7 @@ elif tabletype == 'Filter variables':
 	st.write('You have ') 	
 	st.write(len(f_data3))
 	st.write('variables!')
-	st.write(f_data3)
+	st.table(f_data3)
 	
 else:
 	st.title('Interactive map')
