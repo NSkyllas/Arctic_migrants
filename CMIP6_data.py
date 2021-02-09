@@ -109,7 +109,7 @@ else:
 	st.markdown('**Fig.2: Zonal means of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
 	
 	st.markdown("---")
-	
+	st.write(data2.lon)
 	col5, col6 = st.beta_columns(2)
 	with col5:
 		f_lon = st.slider('Longitude', 1, 360, 1) 
