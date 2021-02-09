@@ -97,16 +97,16 @@ else:
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
 	st.bokeh_chart(hv.render(plot5, backend='bokeh'))
 	st.pyplot(fig5)
-	st.markdown('**Fig.1: Global map of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
+	st.markdown('**Fig.1: Global map of Soil Temperature monthly averages, according to the EC-Earth3 model for the years 1850 to 1851**')
 	
 	st.markdown("---")
 	
 	fig6 = plt.figure(figsize=(8, 0.1))
 	f_depth2 = st.radio('Depth level', [1, 2, 3, 4])
-	plot6 = (data2.tsl.isel(depth=f_depth2-1).mean(dim='lon')-273.15).T.hvplot(clim=(-50, 50))
+	plot6 = (data2.tsl.isel(depth=f_depth2-1).mean(dim='lon')-273.15).T.hvplot(clim=(-50, 50), cmap='RdYlBu_r')
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
-	st.markdown('**Fig.2: Zonal means of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
+	st.markdown('**Fig.2: Zonal means of Soil Temperature monthly averages, according to the EC-Earth3 model for the years 1850 to 1851**')
 	
 	st.markdown("---")
 	st.write(data2.lon)
@@ -119,7 +119,7 @@ else:
 	plot7 = (data2.tsl.mean(dim='depth').sel(lon=f_lon, lat=f_lat)-273.15).T.hvplot()
 	st.bokeh_chart(hv.render(plot7, backend='bokeh'))
 	st.pyplot(fig7)
-	st.markdown('**Fig.3: Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856 for gricell with coordinates (lon, lat):**')
+	st.markdown('**Fig.3: Soil Temperature monthly averages, averaged over depth, according to the EC-Earth3 model for the years 1850 to 1851 for gridcell with coordinates (lon, lat):**')
 	st.write(data2.lon.values[f_lon+180]); st.write(data2.lat.values[f_lat+90])
 
 	st.markdown('---')
