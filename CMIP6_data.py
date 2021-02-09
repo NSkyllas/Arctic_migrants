@@ -36,6 +36,10 @@ if tabletype == 'All CMIP6 variables':
 	st.title('All CMIP6 variables')
 	search = st.text_input('Search')
 	st.write(data[data['Long name'].str.contains(search)])
+	st.write('You have ') 	
+	st.write(len(data[data['Long name'].str.contains(search)]))
+	st.write('variables!')
+	
 	col1, col2 = st.beta_columns(2)	
 	with col1:
 		fig1= plt.figure(figsize=(5, 4))
