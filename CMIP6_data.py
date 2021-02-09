@@ -109,7 +109,6 @@ else:
 	st.markdown('**Fig.2: Zonal means of Soil Temperature monthly averages, according to the EC-Earth3 model for the years 1850 to 1851**')
 	
 	st.markdown("---")
-	st.write(data2.lon)
 	col5, col6 = st.beta_columns(2)
 	with col5:
 		f_lon = st.slider('Longitude', -180, 180, 1) 
