@@ -90,7 +90,7 @@ else:
 	st.subheader(data2.time.values[f_time-1])
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
-	plot5 = data2.thetaot2000.isel(time=f_time-1).hvplot(clim=(-2, 35), cmap='viridis')
+	plot5 = data2.tsl.isel(time=f_time-1).hvplot(cmap='viridis')
 	st.bokeh_chart(hv.render(plot5, backend='bokeh'))
 	st.pyplot(fig5)
 	st.markdown('**Fig.1: Global map of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
@@ -98,7 +98,7 @@ else:
 	st.markdown("---")
 	
 	fig6 = plt.figure(figsize=(8, 0.1))
-	plot6 = data2.thetaot2000.mean(dim='lon').T.hvplot()
+	plot6 = data2.tsl.mean(dim='lon').T.hvplot()
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
 	st.markdown('**Fig.2: Zonal means of Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856**')
@@ -111,7 +111,7 @@ else:
 	with col6:
 		f_lat = st.slider('Latitude', -90, 90, 1)
 	fig7 = plt.figure(figsize=(8, 0.1))
-	plot7 = data2.thetaot2000.sel(lon=f_lon, lat=f_lat).T.hvplot()
+	plot7 = data2.tsl.sel(lon=f_lon, lat=f_lat).T.hvplot()
 	st.bokeh_chart(hv.render(plot7, backend='bokeh'))
 	st.pyplot(fig7)
 	st.markdown('**Fig.3: Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856 for gricell with coordinates (lon, lat):**')
