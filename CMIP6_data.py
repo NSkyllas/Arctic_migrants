@@ -112,7 +112,7 @@ else:
 	
 	col5, col6 = st.beta_columns(2)
 	with col5:
-		f_lon = st.slider('Longitude', -180, 180, 1) 
+		f_lon = st.slider('Longitude', 1, 360, 1) 
 	with col6:
 		f_lat = st.slider('Latitude', -90, 90, 1)
 	fig7 = plt.figure(figsize=(8, 0.1))
