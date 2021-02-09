@@ -112,11 +112,11 @@ else:
 	st.write(data2.lon)
 	col5, col6 = st.beta_columns(2)
 	with col5:
-		f_lon = st.slider('Longitude', 1, 360, 1) 
+		f_lon = st.slider('Longitude', -180, 180, 1) 
 	with col6:
 		f_lat = st.slider('Latitude', -90, 90, 1)
 	fig7 = plt.figure(figsize=(8, 0.1))
-	plot7 = data2.tsl.mean(dim='depth').sel(lon=f_lon, lat=f_lat).T.hvplot()
+	plot7 = (data2.tsl.mean(dim='depth').sel(lon=f_lon, lat=f_lat)-273.15).T.hvplot()
 	st.bokeh_chart(hv.render(plot7, backend='bokeh'))
 	st.pyplot(fig7)
 	st.markdown('**Fig.3: Depth Average Potential Temperature of Upper 2000m  monthly averages, according to the EC-Earth3 model for the years 1852 to 1856 for gricell with coordinates (lon, lat):**')
