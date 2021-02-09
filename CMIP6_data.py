@@ -38,12 +38,12 @@ if tabletype == 'All CMIP6 variables':
 	col1, col2 = st.beta_columns(2)	
 	with col1:
 		fig1= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data['modeling_realm'])
+		sns.countplot(y=data['modeling_realm'], order = data['modeling_realm'].value_counts().index)
 		st.pyplot(fig1)
 	
 	with col2:
 		fig2= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data['frequency'])
+		sns.countplot(y=data['frequency'], order = data['frequency'].value_counts().index)
 		st.pyplot(fig2)
 
 elif tabletype == 'Filter variables':
