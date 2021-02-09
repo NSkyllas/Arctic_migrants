@@ -62,12 +62,12 @@ elif tabletype == 'Filter variables':
 	col3, col4 = st.beta_columns(2)
 	with col3:
 		fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
-		sns.countplot(y=f_data['frequency'])
+		sns.countplot(y=f_data['frequency'], order = f_data['frequency'].value_counts().index)
 		st.pyplot(fig3)
 	
 	with col4:
 		fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
-		sns.countplot(y=f_data2['dimensions'])
+		sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
 		st.pyplot(fig4)
 	
 	st.subheader('Filtered data')
