@@ -102,7 +102,7 @@ else:
 	st.markdown("---")
 	
 	fig6 = plt.figure(figsize=(8, 0.1))
-	f_depth2 = st.radio(1, 2, 3 4)
+	f_depth2 = st.radio('1', '2', '3', '4')
 	plot6 = data2.tsl.isel(depth=f_depth2-1).mean(dim='lon').T.hvplot()
 	st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
