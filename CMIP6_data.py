@@ -98,7 +98,7 @@ else:
 		st.subheader(data2.time.values[f_time-1])
 	with col8:
 		f_depth = st.slider('Depth level', 1, 4, 1)
-		st.subheader(data2.depth.values[f_depth-1])
+		st.subheader(round(data2.depth.values[f_depth-1]), 2)
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
