@@ -38,7 +38,7 @@ if tabletype == 'All CMIP6 variables':
 	if len(terms) == 0:
 		st.write(data)
 		st.write('You have ') 	
-		st.write(len(data)
+		st.write(len(data))
 		st.write('variables!')
 	
 	elif len(terms) == 1:
