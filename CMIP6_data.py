@@ -19,7 +19,7 @@ st.set_page_config(
 st.sidebar.title('CMIP6 climate variables')
 
 st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide! Below, you can select whether you want to see all the available variables, filter them or see a NetCDF file example:**')
-tabletype = st.sidebar.radio('', ['All CMIP6 variables', 'Filter variables', 'Interactive map'])
+tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP variables', 'Interactive plots'])
 
 
 dict1 = pd.read_excel('CMIP6_MIP_tables.xlsx', sheet_name = None)
@@ -32,7 +32,7 @@ def load_data():
 data = load_data()
 
 
-if tabletype == 'All CMIP6 variables':
+if tabletype == 'Search CMIP6 variables':
 	st.title('All CMIP6 variables')
 	terms = st.text_input('Search').lower().split()
 	if len(terms) == 0:
@@ -87,7 +87,7 @@ if tabletype == 'All CMIP6 variables':
 	
 	
 
-elif tabletype == 'Filter variables':
+elif tabletype == 'Filter CMIP6 variables':
 	st.title('Filter variables')	
 	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will start appearing and at the end you will see the filtered table.')
 	
@@ -118,7 +118,7 @@ elif tabletype == 'Filter variables':
 	st.table(f_data3)
 	
 else:
-	st.title('Interactive map')
+	st.title('Interactive plots')
 	st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree and 4 depth levels.')
 	@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
 	def load_data2():
