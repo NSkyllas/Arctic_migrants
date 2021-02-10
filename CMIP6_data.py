@@ -19,7 +19,7 @@ st.set_page_config(
 st.sidebar.title('CMIP6 climate variables')
 
 st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide! Below, you can select whether you want to see all the available variables, filter them or see a NetCDF file example:**')
-tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP variables', 'Interactive plots'])
+tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP6 variables', 'Interactive plots'])
 
 
 dict1 = pd.read_excel('CMIP6_MIP_tables.xlsx', sheet_name = None)
@@ -33,7 +33,7 @@ data = load_data()
 
 
 if tabletype == 'Search CMIP6 variables':
-	st.title('All CMIP6 variables')
+	st.title('Search CMIP6 variables')
 	terms = st.text_input('Search').lower().split()
 	if len(terms) == 0:
 		st.write(data)
@@ -88,7 +88,7 @@ if tabletype == 'Search CMIP6 variables':
 	
 
 elif tabletype == 'Filter CMIP6 variables':
-	st.title('Filter variables')	
+	st.title('Filter CMIP6 variables')	
 	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will start appearing and at the end you will see the filtered table.')
 	
 	realm = st.multiselect('Realm', data['modeling_realm'].unique())
