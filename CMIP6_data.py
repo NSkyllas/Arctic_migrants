@@ -100,7 +100,7 @@ elif tabletype == 'Filter CMIP6 variables':
 	dim = st.multiselect('Dimensions', f_data2['dimensions'].unique())
 	f_data3 = f_data2[(f_data2['dimensions'].isin(dim))]
 	
-	if f_data == data:
+	if len(realm) > 0:
 		col3, col4 = st.beta_columns(2)
 		with col3:
 			fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
