@@ -38,7 +38,7 @@ if tabletype == 'All CMIP6 variables':
 	if len(terms) == 0:
 		st.write(data)
 	elif len(terms) == 1:
-		st.write(data[data['Long name'].str.lower().str.contains(terms)]
+		st.write(data[data['Long name'].str.lower().str.contains(terms)])
 	else:
 		search, search2 = terms
 		st.write(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))])
