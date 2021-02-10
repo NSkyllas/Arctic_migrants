@@ -43,12 +43,12 @@ if tabletype == 'All CMIP6 variables':
 	col1, col2 = st.beta_columns(2)	
 	with col1:
 		fig1= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'], order = data[data['Long name'].str.contains(search)]['modeling_realm'].value_counts().index)
+		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'], order = data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'].value_counts().index)
 		st.pyplot(fig1)
 	
 	with col2:
 		fig2= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['frequency'], order = data[data['Long name'].str.contains(search)]['frequency'].value_counts().index)
+		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['frequency'], order = data[data['Long name'].str.lower().str.contains(search)]['frequency'].value_counts().index)
 		st.pyplot(fig2)
 	
 	
