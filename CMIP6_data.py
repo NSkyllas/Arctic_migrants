@@ -34,8 +34,8 @@ data = load_data()
 
 if tabletype == 'All CMIP6 variables':
 	st.title('All CMIP6 variables')
-	search = st.text_input('Search').lower()
-	st.write(data[data['Long name'].str.lower().str.contains(search)])
+	search, search2 = st.text_input('Search').split().lower()
+	st.write(data[(data['Long name'].str.lower().str.contains(search)]) and (data['Long name'].str.lower().str.contains(search2)]))
 	st.write('You have ') 	
 	st.write(len(data[data['Long name'].str.lower().str.contains(search)]))
 	st.write('variables!')
