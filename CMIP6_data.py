@@ -56,6 +56,17 @@ if tabletype == 'All CMIP6 variables':
 		st.write('You have ') 	
 		st.write(len(data[data['Long name'].str.lower().str.contains(terms[0])]))
 		st.write('variables!')
+		col1, col2 = st.beta_columns(2)	
+		with col1:
+			fig1= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data[data['Long name'].str.lower().str.contains(terms[0])]['modeling_realm'], order = data[data['Long name'].str.lower().str.contains(terms[0])]['modeling_realm'].value_counts().index)
+			st.pyplot(fig1)
+	
+		with col2:
+			fig2= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data[data['Long name'].str.lower().str.contains(terms[0])]['frequency'], order = data[data['Long name'].str.lower().str.contains(terms[0])]['frequency'].value_counts().index)
+			st.pyplot(fig2)
+			
 	else:
 		search, search2 = terms
 		st.write(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))])
@@ -63,16 +74,16 @@ if tabletype == 'All CMIP6 variables':
 		st.write(len(data[data['Long name'].str.lower().str.contains(search)]))
 		st.write('variables!')
 	
-	col1, col2 = st.beta_columns(2)	
-	with col1:
-		fig1= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'], order = data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'].value_counts().index)
-		st.pyplot(fig1)
+		col1, col2 = st.beta_columns(2)	
+		with col1:
+			fig1= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'], order = data[data['Long name'].str.lower().str.contains(search)]['modeling_realm'].value_counts().index)
+			st.pyplot(fig1)
 	
-	with col2:
-		fig2= plt.figure(figsize=(5, 4))
-		sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['frequency'], order = data[data['Long name'].str.lower().str.contains(search)]['frequency'].value_counts().index)
-		st.pyplot(fig2)
+		with col2:
+			fig2= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data[data['Long name'].str.lower().str.contains(search)]['frequency'], order = data[data['Long name'].str.lower().str.contains(search)]['frequency'].value_counts().index)
+			st.pyplot(fig2)
 	
 	
 
