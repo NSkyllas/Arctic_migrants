@@ -123,22 +123,22 @@ elif tabletype == 'Filter CMIP6 variables':
 				fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
 				sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
 				st.pyplot(fig4)
-	elif len(realm) > 0 and len(freq) > 0 and len(dim) > 0:
-		col3, col4 = st.beta_columns(2)
-		with col3:
-			fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
-			sns.countplot(y=f_data['frequency'], order = f_data['frequency'].value_counts().index)
-			st.pyplot(fig3)
+			elif len(realm) > 0 and len(freq) > 0 and len(dim) > 0:
+				col3, col4 = st.beta_columns(2)
+				with col3:
+					fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
+					sns.countplot(y=f_data['frequency'], order = f_data['frequency'].value_counts().index)
+					st.pyplot(fig3)
 	
-		with col4:
-			fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
-			sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
-			st.pyplot(fig4)
-		st.subheader('Filtered data')
-		st.write('You have ') 	
-		st.write(len(f_data3))
-		st.write('variables!')
-		st.table(f_data3)
+				with col4:
+					fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
+					sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
+					st.pyplot(fig4)
+				st.subheader('Filtered data')
+				st.write('You have ') 	
+				st.write(len(f_data3))
+				st.write('variables!')
+				st.table(f_data3)
 	else:
 		st.subheader('Select a realm!')
 	
