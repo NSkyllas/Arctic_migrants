@@ -40,6 +40,16 @@ if tabletype == 'All CMIP6 variables':
 		st.write('You have ') 	
 		st.write(len(data))
 		st.write('variables!')
+		col1, col2 = st.beta_columns(2)	
+		with col1:
+			fig1= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data, order = data.value_counts().index)
+			st.pyplot(fig1)
+	
+		with col2:
+			fig2= plt.figure(figsize=(5, 4))
+			sns.countplot(y=data, order = data.value_counts().index)
+			st.pyplot(fig2)
 	
 	elif len(terms) == 1:
 		st.write(data[data['Long name'].str.lower().str.contains(terms[0])])
