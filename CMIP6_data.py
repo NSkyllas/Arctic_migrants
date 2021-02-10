@@ -42,9 +42,9 @@ if tabletype == 'All CMIP6 variables':
 	else:
 		search, search2 = terms
 		st.write(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))])
-	st.write('You have ') 	
-	st.write(len(data[data['Long name'].str.lower().str.contains(search)]))
-	st.write('variables!')
+		st.write('You have ') 	
+		st.write(len(data[data['Long name'].str.lower().str.contains(search)]))
+		st.write('variables!')
 	
 	col1, col2 = st.beta_columns(2)	
 	with col1:
