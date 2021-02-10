@@ -100,22 +100,25 @@ elif tabletype == 'Filter CMIP6 variables':
 	dim = st.multiselect('Dimensions', f_data2['dimensions'].unique())
 	f_data3 = f_data2[(f_data2['dimensions'].isin(dim))]
 	
-	col3, col4 = st.beta_columns(2)
-	with col3:
-		fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
-		sns.countplot(y=f_data['frequency'], order = f_data['frequency'].value_counts().index)
-		st.pyplot(fig3)
+	if f_data != data:
+		col3, col4 = st.beta_columns(2)
+		with col3:
+			fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
+			sns.countplot(y=f_data['frequency'], order = f_data['frequency'].value_counts().index)
+			st.pyplot(fig3)
 	
-	with col4:
-		fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
-		sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
-		st.pyplot(fig4)
+		with col4:
+			fig4= plt.figure(figsize = (5, len(f_data2['dimensions'].unique())*0.5))
+			sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
+			st.pyplot(fig4)
 	
-	st.subheader('Filtered data')
-	st.write('You have ') 	
-	st.write(len(f_data3))
-	st.write('variables!')
-	st.table(f_data3)
+		st.subheader('Filtered data')
+		st.write('You have ') 	
+		st.write(len(f_data3))
+		st.write('variables!')
+		st.table(f_data3)
+	else:
+		st.subheader('Use the filters!')
 	
 else:
 	st.title('Interactive plots')
