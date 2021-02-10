@@ -112,7 +112,7 @@ elif tabletype == 'Filter CMIP6 variables':
 		#	sns.countplot(y=f_data2['dimensions'], order = f_data2['dimensions'].value_counts().index)
 		#	st.pyplot(fig4)
 	
-		if len(realm) > 0 and len(freq) > 0:
+		if len(freq) > 0:
 			#col3, col4 = st.beta_columns(2)
 			#with col3:
 			#	fig3= plt.figure(figsize = (6, len(f_data['dimensions'].unique())*0.2))
