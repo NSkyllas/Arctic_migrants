@@ -27,7 +27,7 @@ dict1 = pd.read_excel('CMIP6_MIP_tables.xlsx', sheet_name = None)
 @st.cache
 def load_data():
     df = pd.concat(dict1.values(), ignore_index=True)
-    return df[['Long name', 'units', 'description', 'comment', 'Variable Name', 'CF Standard Name', 'dimensions', 'modeling_realm', 'frequency']]
+    return df[['Long name', 'units', 'description', 'comment', 'Variable Name', 'CF Standard Name', 'dimensions', 'modeling_realm', 'frequency', 'MIPs (by experiment)']]
     
 data = load_data()
 
