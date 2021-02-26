@@ -141,6 +141,7 @@ else:
 	
 	fig5 = plt.figure(figsize=(8, 0.1))
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
+	plot5
 	#st.bokeh_chart(hv.render(plot5), backend='bokeh')
 	hv.render(plot5)
 	st.pyplot(fig5)
