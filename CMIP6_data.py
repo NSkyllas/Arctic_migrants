@@ -143,7 +143,6 @@ else:
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
 	st.write(type(plot5))
 	st.bokeh_chart(hv.render(plot5), backend='bokeh')
-	#hv.render(plot5)
 	st.pyplot(fig5)
 	st.markdown('**Fig.1: Global map of Soil Temperature monthly averages ($^o$C), according to the EC-Earth3 model for the years 1850 to 1851**')
 	
@@ -152,7 +151,7 @@ else:
 	fig6 = plt.figure(figsize=(8, 0.1))
 	f_depth2 = st.selectbox('Depth level', [1, 2, 3, 4])
 	plot6 = (data2.tsl.isel(depth=f_depth2-1).mean(dim='lon')-273.15).T.hvplot(clim=(-50, 50), cmap='RdYlBu_r')
-	#st.bokeh_chart(hv.render(plot6, backend='bokeh'))
+	fig6 = st.bokeh_chart(hv.render(plot6, backend='bokeh'))
 	st.pyplot(fig6)
 	st.markdown('**Fig.2: Zonal means of Soil Temperature monthly averages ($^o$C), according to the EC-Earth3 model for the years 1850 to 1851**')
 	
