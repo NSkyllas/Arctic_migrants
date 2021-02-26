@@ -143,7 +143,7 @@ else:
 	fig5 = plt.figure(figsize=(8, 0.1))
 	plot5 = (data2.tsl.isel(time=f_time-1, depth=f_depth-1)-273.15).hvplot(clim=(-50, 50), cmap='RdYlBu_r')
 	st.write(type(plot5))
-	hv.render(plot5, backend='bokeh')
+	st.bokeh_chart(hv.render(plot5, backend='bokeh'))
 	st.pyplot(fig5)
 	st.markdown('**Fig.1: Global map of Soil Temperature monthly averages ($^o$C), according to the EC-Earth3 model for the years 1850 to 1851**')
 	
