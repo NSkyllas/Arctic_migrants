@@ -162,7 +162,7 @@ else:
 		f_lat = st.slider('Latitude', -90, 90, 1)
 	fig7 = plt.figure(figsize=(8, 0.1))
 	plot7 = (data2.tsl.mean(dim='depth').sel(lon=f_lon, lat=f_lat)-273.15).T.hvplot()
-	st.bokeh_chart(hv.render(plot7, backend='bokeh'))
+	#st.bokeh_chart(hv.render(plot7, backend='bokeh'))
 	st.pyplot(fig7)
 	st.markdown('**Fig.3: Soil Temperature monthly averages ($^o$C), averaged over depth, according to the EC-Earth3 model for the years 1850 to 1851 for gridcell with coordinates (lon, lat):**')
 	st.write(data2.lon.values[f_lon+180]); st.write(data2.lat.values[f_lat+90])
