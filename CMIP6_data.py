@@ -8,6 +8,7 @@ import numpy as np
 import hvplot.xarray
 import hvplot
 import holoviews as hv
+import holoviews.plotting.mpl
 # In[2]:
 
 st.set_page_config(
