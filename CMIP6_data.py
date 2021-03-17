@@ -54,10 +54,19 @@ if tabletype == 'Search CMIP6 variables':
 			st.pyplot(fig2)
 	
 	elif len(terms) == 1:
-		st.write(data[data['Long name'].str.lower().str.contains(terms[0])])
+		df1 = data[data['Long name'].str.lower().str.contains(terms[0])]
+		st.write(df1)
 		st.write('You have ') 	
-		st.write(len(data[data['Long name'].str.lower().str.contains(terms[0])]))
+		st.write(df1)
 		st.write('variables!')
+		
+		##########################
+		csv = df1.to_csv(index=False)
+		b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+		href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (right-click and save as &lt;some_name&gt;.csv)'
+		st.markdown(href, unsafe_allow_html=True)	
+		###########################
+		
 		col1, col2 = st.beta_columns(2)	
 		with col1:
 			fig1= plt.figure(figsize=(5, 4))
