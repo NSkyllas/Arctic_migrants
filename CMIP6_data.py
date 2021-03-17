@@ -9,6 +9,8 @@ import hvplot.xarray
 import hvplot
 import holoviews as hv
 import holoviews.plotting.mpl
+import base64
+
 # In[2]:
 
 st.set_page_config(
