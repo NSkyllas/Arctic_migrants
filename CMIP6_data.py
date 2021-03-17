@@ -57,7 +57,7 @@ if tabletype == 'Search CMIP6 variables':
 		df1 = data[data['Long name'].str.lower().str.contains(terms[0])]
 		st.write(df1)
 		st.write('You have ') 	
-		st.write(df1)
+		st.write(len(df1))
 		st.write('variables!')
 		
 		##########################
