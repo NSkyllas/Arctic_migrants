@@ -31,7 +31,16 @@ def load_data():
     return df[['Long name', 'units', 'description', 'comment', 'Variable Name', 'CF Standard Name', 'dimensions', 'modeling_realm', 'frequency', 'MIPs (by experiment)']]
     
 data = load_data()
-
+#################################
+def get_table_download_link(df):
+    """Generates a link allowing the data in a given panda dataframe to be downloaded
+    in:  dataframe
+    out: href string
+    """
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
+##################################
 
 if tabletype == 'Search CMIP6 variables':
 	st.title('Search CMIP6 variables')
@@ -74,6 +83,10 @@ if tabletype == 'Search CMIP6 variables':
 		st.write('You have ') 	
 		st.write(len(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]))
 		st.write('variables!')
+		
+		##########################
+		st.markdown(get_table_download_link(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]), unsafe_allow_html=True)
+		###########################
 	
 		col1, col2 = st.beta_columns(2)	
 		with col1:
