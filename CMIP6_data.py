@@ -60,14 +60,6 @@ if tabletype == 'Search CMIP6 variables':
 		st.write(len(df1))
 		st.write('variables!')
 		
-		##########################
-		csv = df1.to_csv(index=False)
-		b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
-		href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (right-click and save as &lt;some_name&gt;.csv)'
-		st.markdown("## Download the table:")
-		st.markdown(href, unsafe_allow_html=True)	
-		###########################
-		
 		col1, col2 = st.beta_columns(2)	
 		with col1:
 			fig1= plt.figure(figsize=(5, 4))
@@ -78,6 +70,15 @@ if tabletype == 'Search CMIP6 variables':
 			fig2= plt.figure(figsize=(5, 4))
 			sns.countplot(y=data[data['Long name'].str.lower().str.contains(terms[0])]['frequency'], order = data[data['Long name'].str.lower().str.contains(terms[0])]['frequency'].value_counts().index)
 			st.pyplot(fig2)
+		
+		##########################
+		csv = df1.to_csv(index=False)
+		b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+		href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (right-click and save as &lt;some_name&gt;.csv)'
+		st.markdown("## Download the table:")
+		st.markdown(href, unsafe_allow_html=True)	
+		###########################
+		
 			
 	else:
 		search, search2 = terms
