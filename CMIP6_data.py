@@ -84,7 +84,7 @@ if tabletype == 'Search CMIP6 variables':
 		df2 = data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]
 		st.write(df2)
 		st.write('You have ') 	
-		st.write(len(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]))
+		st.write(len(df2))
 		st.write('variables!')
 		
 		##########################
