@@ -81,13 +81,14 @@ if tabletype == 'Search CMIP6 variables':
 			
 	else:
 		search, search2 = terms
-		st.write(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))])
+		df2 = data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]
+		st.write(df2)
 		st.write('You have ') 	
 		st.write(len(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]))
 		st.write('variables!')
 		
 		##########################
-		st.markdown(get_table_download_link(data[(data['Long name'].str.lower().str.contains(search)) & (data['Long name'].str.lower().str.contains(search2))]), unsafe_allow_html=True)
+		st.markdown(get_table_download_link(df2), unsafe_allow_html=True)
 		###########################
 	
 		col1, col2 = st.beta_columns(2)	
