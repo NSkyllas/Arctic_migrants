@@ -19,7 +19,6 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
-[theme]
 primaryColor="#F63366"
 backgroundColor="#FFFFFF"
 secondaryBackgroundColor="#F0F2F6"
