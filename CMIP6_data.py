@@ -19,6 +19,13 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
+[theme]
+primaryColor="#F63366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#262730"
+font="sans serif"
+
 st.sidebar.title('CMIP6 climate variables')
 
 st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide! Below, you can select whether you want to see all the available variables, filter them or see a NetCDF file example:**')
