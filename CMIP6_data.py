@@ -17,12 +17,7 @@ st.set_page_config(
      #page_title="CMIP6 climate variables",
      #layout="wide",
      initial_sidebar_state="expanded",
-      primaryColor="#F63366",
-	backgroundColor="#000000",
-	secondaryBackgroundColor="#F0F2F6",
-	textColor="#262730",
-	font="sans serif"
-)
+      )
 
 
 
