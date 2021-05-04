@@ -24,7 +24,7 @@ st.set_page_config(
 st.sidebar.title('CMIP6 climate variables')
 
 st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide! Below, you can select whether you want to see all the available variables, filter them or see a NetCDF file example:**')
-tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP6 variables', 'Interactive plots'])
+tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP6 variables', 'Delivered variables', 'Interactive plots'])
 
 
 dict1 = pd.read_excel('CMIP6_MIP_tables.xlsx', sheet_name = None)
@@ -108,7 +108,26 @@ if tabletype == 'Search CMIP6 variables':
 		st.markdown("## Download the table:")
 		st.markdown(href, unsafe_allow_html=True)	
 		###########################
-
+		
+elif tabletype == 'Delivered variables':
+	st.title('Delivered variables for the WPs')
+	#st.title('Interactive plots')
+	#st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree and 4 depth levels.')
+	#@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
+	#def load_data2():
+#		dset = xr.open_dataset('soil_temp_5years_regridded.nc')
+#		return dset
+    
+#	data2 = load_data2()
+#	
+	dict1 = pd.read_excel('Methods.xlsx', sheet_name = None)
+	@st.cache
+	def load_data():
+    		df = pd.concat(dict1.values(), ignore_index=True)
+    		return df
+    	data = load_data()
+	st.write(data)
+	
 elif tabletype == 'Filter CMIP6 variables':
 	st.title('Filter CMIP6 variables')	
 	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will start appearing and at the end you will see the filtered table.')
@@ -151,6 +170,7 @@ elif tabletype == 'Filter CMIP6 variables':
 				###########################
 	else:
 		st.subheader('You can start using the filters!')
+		
 	
 else:
 	st.title('Interactive plots')
