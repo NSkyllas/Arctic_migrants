@@ -111,16 +111,8 @@ if tabletype == 'Search CMIP6 variables':
 		#
 elif tabletype == 'Delivered variables':
 	st.title('Delivered variables for the WPs')
-	#st.title('Interactive plots')
-	#st.sidebar.markdown('Feel free to play around with the interactive plots (move the slider, zoom in/out, select an area) in order to get a feeling of the time scales and spatio-temporal resolution of the CMIP6 variables. In this specific example, only the monthly averages of 1 variable were used, with a spatial resolution of 1x1 degree and 4 depth levels.')
-	#@st.cache(hash_funcs={xr.core.dataset.Dataset: id},  allow_output_mutation=True)
-	#def load_data2():
-#		dset = xr.open_dataset('soil_temp_5years_regridded.nc')
-#		return dset
-    
-#	data2 = load_data2()
 #	
-	dict1 = pd.read_excel('Methods.xlsx', sheet_name = None)
+	dict1 = pd.read_excel('Delivered_var.xlsx', sheet_name = None)
 	@st.cache
 	def load_data():
 		df = pd.concat(dict1.values(), ignore_index=True)
