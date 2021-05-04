@@ -115,7 +115,7 @@ elif tabletype == 'Delivered variables':
 	dictdel = pd.read_excel('Delivered_var.xlsx', sheet_name = None)
 	@st.cache
 	def load_datadel():
-		dfdel = pd.concat(dict1del.values(), ignore_index=True)
+		dfdel = pd.concat(dictdel.values(), ignore_index=True)
 		return dfdel
 	datadel = load_datadel()
 	st.write(datadel)
