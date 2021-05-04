@@ -123,9 +123,9 @@ elif tabletype == 'Delivered variables':
 	dict1 = pd.read_excel('Methods.xlsx', sheet_name = None)
 	@st.cache
 	def load_data():
-    		df = pd.concat(dict1.values(), ignore_index=True)
-    		return df
-    	data = load_data()
+		df = pd.concat(dict1.values(), ignore_index=True)
+		return df
+	data = load_data()
 	st.write(data)
 	
 elif tabletype == 'Filter CMIP6 variables':
