@@ -108,7 +108,7 @@ if tabletype == 'Search CMIP6 variables':
 		st.markdown("## Download the table:")
 		st.markdown(href, unsafe_allow_html=True)	
 		###########################
-		
+		#
 elif tabletype == 'Delivered variables':
 	st.title('Delivered variables for the WPs')
 	#st.title('Interactive plots')
