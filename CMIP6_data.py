@@ -112,13 +112,13 @@ if tabletype == 'Search CMIP6 variables':
 elif tabletype == 'Delivered variables':
 	st.title('Delivered variables for the WPs')
 #	
-	dict1 = pd.read_excel('Delivered_var.xlsx', sheet_name = None)
+	dictdel = pd.read_excel('Delivered_var.xlsx', sheet_name = None)
 	@st.cache
-	def load_data():
-		df = pd.concat(dict1.values(), ignore_index=True)
-		return df
-	data = load_data()
-	st.write(data)
+	def load_datadel():
+		dfdel = pd.concat(dict1del.values(), ignore_index=True)
+		return dfdel
+	datadel = load_datadel()
+	st.write(datadel)
 	
 elif tabletype == 'Filter CMIP6 variables':
 	st.title('Filter CMIP6 variables')	
