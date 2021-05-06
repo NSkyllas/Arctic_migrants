@@ -120,6 +120,14 @@ elif tabletype == 'Delivered variables':
 	datadel = load_datadel()
 	st.write(datadel)
 	
+	##########################
+	csv = datadel.to_csv(index=False)
+	b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+	href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (right-click and save as &lt;some_name&gt;.csv)'
+	st.markdown("## Download the table:")
+	st.markdown(href, unsafe_allow_html=True)	
+	###########################
+	
 elif tabletype == 'Filter CMIP6 variables':
 	st.title('Filter CMIP6 variables')	
 	st.sidebar.markdown('Please use the 3 available filters to confine your search. Barplots will start appearing and at the end you will see the filtered table.')
