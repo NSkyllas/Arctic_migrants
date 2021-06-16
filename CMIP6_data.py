@@ -21,7 +21,7 @@ st.set_page_config(
 
 
 
-st.sidebar.title('CMIP6 climate variables')
+st.sidebar.title('Arctic migrants consortium climate data')
 
 st.sidebar.markdown('**Welcome to the CMIP6 climate variables interactive guide! Below, you can select whether you want to see all the available variables, filter them or see a NetCDF file example:**')
 tabletype = st.sidebar.radio('', ['Search CMIP6 variables', 'Filter CMIP6 variables', 'Delivered variables', 'Interactive plots'])
